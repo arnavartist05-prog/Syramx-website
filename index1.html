@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RobloxIdeas.gg - Share Ur Epic Game Ideas!!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito', sans-serif; background-color: #1a1a2e; min-height: 100vh; color: white; overflow-x: hidden; }
+    .pixel { position: fixed; border-radius: 2px; opacity: 0.15; animation: floatUp linear infinite; pointer-events: none; z-index: 0; }
+    @keyframes floatUp { 0% { transform: translateY(110vh) rotate(0deg); } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+    header { position: relative; z-index: 10; text-align: center; padding: 30px 20px 20px; background: linear-gradient(135deg, #e02020, #ff6b35); border-bottom: 6px solid #fff; box-shadow: 0 6px 0 #b01010; }
+    .logo { font-family: 'Fredoka One', cursive; font-size: clamp(2rem, 6vw, 4rem); color: white; text-shadow: 4px 4px 0 #7a0000; animation: wobble 3s ease-in-out infinite; }
+    @keyframes wobble { 0%,100%{transform:rotate(-1deg)} 50%{transform:rotate(1deg)} }
+    .logo span { color: #ffe600; }
+    .tagline { font-size: 1rem; color: #ffe; margin-top: 6px; font-weight: 700; text-transform: uppercase; }
+    nav { margin-top: 16px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    nav a { background: #fff; color: #e02020; font-weight: 900; text-decoration: none; padding: 8px 18px; border-radius: 6px; font-size: 0.85rem; border: 3px solid #b01010; box-shadow: 3px 3px 0 #7a0000; transition: transform 0.1s, box-shadow 0.1s; text-transform: uppercase; }
+    nav a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 #7a0000; }
+    main { position: relative; z-index: 5; max-width: 1100px; margin: 0 auto; padding: 30px 16px; }
+    .banner { background: linear-gradient(90deg, #ffe600, #ff9500); color: #1a1a2e; text-align: center; padding: 12px; border-radius: 10px; font-weight: 900; border: 4px solid #fff; box-shadow: 0 4px 0 rgba(0,0,0,0.3); margin-bottom: 30px; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.01)} }
+    .section-title { font-family: 'Fredoka One', cursive; font-size: 1.8rem; color: #ffe600; text-shadow: 3px 3px 0 #7a6000; margin-bottom: 18px; }
+    .submit-box { background: linear-gradient(135deg, #16213e, #0f3460); border: 4px solid #00b4d8; border-radius: 14px; padding: 24px; box-shadow: 0 8px 0 #003f5c; margin-bottom: 40px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media(max-width:600px){.form-row{grid-template-columns:1fr}}
+    label { display: block; font-weight: 900; font-size: 0.85rem; text-transform: uppercase; color: #00b4d8; margin-bottom: 5px; }
+    input[type="text"], textarea, select { width: 100%; padding: 10px 14px; border-radius: 8px; border: 3px solid #00b4d8; background: #0a1628; color: white; font-family: 'Nunito', sans-serif; font-size: 0.95rem; outline: none; }
+    input:focus, textarea:focus, select:focus { border-color: #ffe600; box-shadow: 0 0 10px rgba(255,230,0,0.3); }
+    textarea { resize: vertical; min-height: 100px; }
+    select option { background: #0a1628; }
+    .tag-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .tag-btn { padding: 5px 14px; border-radius: 20px; border: 2px solid #555; background: transparent; color: #aaa; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 0.8rem; font-weight: 700; transition: all 0.15s; }
+    .tag-btn.active { border-color: #ffe600; background: #ffe600; color: #1a1a2e; }
+    .tag-btn:hover { border-color: #ffe600; color: #ffe600; }
+    .submit-btn { width: 100%; margin-top: 18px; padding: 14px; background: linear-gradient(135deg, #e02020, #ff6b35); color: white; font-family: 'Fredoka One', cursive; font-size: 1.3rem; border: none; border-radius: 10px; cursor: pointer; border-bottom: 5px solid #7a0000; letter-spacing: 1px; transition: transform 0.1s; }
+    .submit-btn:hover { background: linear-gradient(135deg, #ff3333, #ff8c55); }
+    .submit-btn:active { transform: translateY(3px); }
+    .ideas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .idea-card { background: linear-gradient(135deg, #16213e, #0f3460); border-radius: 14px; padding: 20px; border: 3px solid #00b4d8; box-shadow: 0 6px 0 #003f5c; transition: transform 0.2s, box-shadow 0.2s; }
+    .idea-card:hover { transform: translateY(-4px); box-shadow: 0 10px 0 #003f5c; }
+    .card-genre { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; }
+    .card-title { font-family: 'Fredoka One', cursive; font-size: 1.25rem; color: #ffe600; text-shadow: 2px 2px 0 #7a6000; margin-bottom: 6px; }
+    .card-author { font-size: 0.78rem; color: #00b4d8; font-weight: 700; margin-bottom: 10px; }
+    .card-desc { font-size: 0.88rem; color: #ccd; line-height: 1.5; margin-bottom: 14px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+    .card-tag { padding: 2px 8px; border-radius: 10px; background: rgba(255,255,255,0.08); font-size: 0.72rem; font-weight: 700; color: #aac; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; }
+    .vote-btn { display: flex; align-items: center; gap: 6px; background: rgba(0,255,100,0.1); border: 2px solid #00c853; border-radius: 8px; color: #00c853; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 0.85rem; padding: 5px 14px; cursor: pointer; transition: all 0.2s; }
+    .vote-btn:hover, .vote-btn.voted { background: #00c853; color: #1a1a2e; }
+    .card-time { font-size: 0.72rem; color: #556; }
+    .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #00c853; color: #1a1a2e; padding: 12px 28px; border-radius: 10px; font-weight: 900; z-index: 1000; transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    footer { text-align: center; padding: 30px 20px; color: #445; font-size: 0.82rem; border-top: 3px solid #222; margin-top: 40px; }
+    footer span { color: #e02020; }
+    .stats-bar { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 20px; margin-bottom: 30px; }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Fredoka One', cursive; font-size: 1.8rem; color: #ffe600; display: block; }
+    .stat-label { font-size: 0.75rem; color: #778; text-transform: uppercase; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🎮 Roblox<span>Ideas</span>.gg</div>
+    <div class="tagline">✨ share ur epic game ideas with the world!! ✨</div>
+    <nav>
+      <a href="#">🏠 Home</a><a href="#">🔥 Trending</a><a href="#">⭐ Top Rated</a><a href="#">🆕 New Ideas</a><a href="#">👤 My Profile</a>
+    </nav>
+  </header>
+  <main>
+    <div class="banner">🚨 WE HAVE <span id="total-count">0</span> GAME IDEAS!! be the next big roblox dev!! submit urs NOW 🚨</div>
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-num" id="stat-ideas">0</span><span class="stat-label">Ideas Shared</span></div>
+      <div class="stat"><span class="stat-num" id="stat-votes">0</span><span class="stat-label">Total Votes</span></div>
+      <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Possibilities</span></div>
+    </div>
+    <div class="submit-box">
+      <div class="section-title">💡 Submit Your Game Idea!!</div>
+      <div class="form-row">
+        <div><label>Your Roblox Username</label><input type="text" id="inp-username" placeholder="e.g. CoolDevXD123" /></div>
+        <div><label>Game Name</label><input type="text" id="inp-title" placeholder="e.g. Zombie Tower Defense 2!!" /></div>
+      </div>
+      <div style="margin-bottom:14px">
+        <label>Describe Your Idea (make it sound EPIC)</label>
+        <textarea id="inp-desc" placeholder="Tell us everything!! What's the goal? How do you play? What makes it super fun??"></textarea>
+      </div>
+      <div class="form-row">
+        <div>
+          <label>Genre</label>
+          <select id="inp-genre">
+            <option value="">-- Pick a Genre --</option>
+            <option>⚔️ RPG</option><option>🏰 Tower Defense</option><option>🏃 Obby</option>
+            <option>🔫 Shooter</option><option>🏡 Roleplay</option><option>🧟 Survival</option>
+            <option>🏎️ Racing</option><option>🧩 Simulator</option><option>🎭 Tycoon</option><option>🌀 Other</option>
+          </select>
+        </div>
+        <div>
+          <label>Tags (pick some!)</label>
+          <div class="tag-buttons">
+            <button class="tag-btn" onclick="toggleTag(this)">Multiplayer</button>
+            <button class="tag-btn" onclick="toggleTag(this)">Solo</button>
+            <button class="tag-btn" onclick="toggleTag(this)">PvP</button>
+            <button class="tag-btn" onclick="toggleTag(this)">Co-op</button>
+            <button class="tag-btn" onclick="toggleTag(this)">Open World</button>
+            <button class="tag-btn" onclick="toggleTag(this)">Story</button>
+            <button class="tag-btn" onclick="toggleTag(this)">Pets</button>
+            <button class="tag-btn" onclick="toggleTag(this)">Building</button>
+          </div>
+        </div>
+      </div>
+      <button class="submit-btn" onclick="submitIdea()">🚀 SUBMIT MY EPIC IDEA!!</button>
+    </div>
+    <div class="section-title">🔥 Latest Ideas From The Community!!</div>
+    <div class="ideas-grid" id="ideas-grid"></div>
+  </main>
+  <footer>
+    <p>made with ❤️ by roblox fans, for roblox fans | not affiliated with <span>Roblox Corp</span> lol</p>
+    <p style="margin-top:6px">RobloxIdeas.gg © 2025 — go make ur dream game already!!</p>
+  </footer>
+  <div class="toast" id="toast">✅ posted!!</div>
+  <script>
+    const colors=['#e02020','#ffe600','#00b4d8','#ff6b35','#00c853'];
+    for(let i=0;i<20;i++){const p=document.createElement('div');p.className='pixel';p.style.cssText=`left:${Math.random()*100}%;background:${colors[i%5]};animation-duration:${6+Math.random()*10}s;animation-delay:${Math.random()*8}s;width:${8+Math.random()*14}px;height:${8+Math.random()*14}px;`;document.body.appendChild(p);}
+    const GC={'⚔️ RPG':'#9c27b0','🏰 Tower Defense':'#e02020','🏃 Obby':'#ff9500','🔫 Shooter':'#607d8b','🏡 Roleplay':'#e91e63','🧟 Survival':'#4caf50','🏎️ Racing':'#2196f3','🧩 Simulator':'#00b4d8','🎭 Tycoon':'#c8a800','🌀 Other':'#00c853'};
+    let ideas=[
+      {username:"BuilderBoy9000",title:"Mega Dragon Tycoon EXTREME!!",desc:"U start as a tiny peasant and have to build up ur dragon empire!! Train dragons, upgrade ur castle, and fight other players! Has a secret volcano boss mode!!",genre:"🎭 Tycoon",tags:["Multiplayer","PvP","Building"],votes:47,voted:false,time:"2 hours ago"},
+      {username:"xXProDevXx",title:"Zombie Escape But Its Really Hard",desc:"100 players have to escape from 1 zombie who gets more powerful every minute. Maps are huge with secret bunkers. Last survivor wins a trophy!!",genre:"🧟 Survival",tags:["Multiplayer","PvP"],votes:31,voted:false,time:"5 hours ago"},
+      {username:"CoolCoderGirl",title:"Space Obby Galaxy Quest",desc:"An obby but ur in SPACE!! Zero gravity sections, meteor showers to dodge, and at the end theres a black hole checkpoint. 500 stages total!!",genre:"🏃 Obby",tags:["Solo","Story"],votes:28,voted:false,time:"1 day ago"},
+    ];
+    function getActiveTags(){return[...document.querySelectorAll('.tag-btn.active')].map(b=>b.textContent);}
+    function toggleTag(b){b.classList.toggle('active');}
+    function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+    function submitIdea(){
+      const u=document.getElementById('inp-username').value.trim(),t=document.getElementById('inp-title').value.trim(),d=document.getElementById('inp-desc').value.trim(),g=document.getElementById('inp-genre').value;
+      if(!u||!t||!d||!g){showToast('⚠️ fill in all the fields!!','#e02020');return;}
+      ideas.unshift({username:u,title:t,desc:d,genre:g,tags:getActiveTags(),votes:0,voted:false,time:'just now'});
+      renderAll();showToast('🚀 ur idea has been posted!! epic!!','#00c853');
+      ['inp-username','inp-title','inp-desc'].forEach(id=>document.getElementById(id).value='');
+      document.getElementById('inp-genre').value='';document.querySelectorAll('.tag-btn.active').forEach(b=>b.classList.remove('active'));
+    }
+    function vote(i){if(ideas[i].voted)return;ideas[i].votes++;ideas[i].voted=true;renderAll();showToast('👍 voted!!','#00b4d8');}
+    function renderAll(){
+      const grid=document.getElementById('ideas-grid');grid.innerHTML='';
+      ideas.forEach((idea,i)=>{
+        const c=GC[idea.genre]||'#00b4d8',card=document.createElement('div');card.className='idea-card';
+        card.innerHTML=`<div class="card-genre" style="background:${c}22;color:${c};border:2px solid ${c}">${idea.genre}</div><div class="card-title">${esc(idea.title)}</div><div class="card-author">👤 ${esc(idea.username)}</div><div class="card-desc">${esc(idea.desc)}</div><div class="card-tags">${idea.tags.map(t=>`<span class="card-tag">${t}</span>`).join('')}</div><div class="card-footer"><button class="vote-btn ${idea.voted?'voted':''}" onclick="vote(${i})">👍 ${idea.votes} Votes</button><span class="card-time">🕐 ${idea.time}</span></div>`;
+        grid.appendChild(card);
+      });
+      document.getElementById('total-count').textContent=ideas.length;
+      document.getElementById('stat-ideas').textContent=ideas.length;
+      document.getElementById('stat-votes').textContent=ideas.reduce((s,i)=>s+i.votes,0);
+    }
+    let tt;
+    function showToast(msg,color){const t=document.getElementById('toast');t.textContent=msg;t.style.background=color||'#00c853';t.style.color='#1a1a2e';t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2500);}
+    renderAll();
+  </script>
+</body>
+</html>
